@@ -21,6 +21,9 @@ class CustomApplications(DefaultApps):
             if f.extension in ('psd', 'xcf', ):
                 c.flags += 'd'
                 return self.either(c, 'gimp')
+            if f.extension in ('pd', ):
+                c.flags += 'd'
+                return self.either(c, 'puredata')
 
         if f.image:
             return self.either(c, 'mirage', 'eog', 'feh')
