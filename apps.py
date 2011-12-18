@@ -4,7 +4,8 @@ from ranger.api.apps import tup
 class CustomApplications(DefaultApps):
 
     def app_mplayer_playlist(self, c):
-        return tup('mplayer', '-playlist', *c)
+        return tup('mplayer', '-cache', '1024', '-cache-min', '30', '-playlist', *c)
+        #return tup('mplayer', '-playlist', *c)
 
     def app_default(self, c):
         f = c.file
